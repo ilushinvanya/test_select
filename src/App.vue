@@ -11,7 +11,7 @@
 			template(v-slot:placeholder)
 				span Custom placeholder
 
-		p {{ select }}
+		p select: {{ select }}
 </template>
 
 <script lang="ts">

@@ -30,9 +30,9 @@
 
     @Component
     export default class Select extends Vue {
-        @Prop() private placeholder!: string;
-        @Prop() private options!: Array<any>;
-        @Prop() private value!: any;
+        @Prop({default: 'placeholder'}) private placeholder!: string;
+        @Prop({default: []}) private options!: Array<any>;
+        @Prop({default: false}) private value!: any;
         @Prop({default: false}) private disabled!: boolean;
         @Prop({default: 'label'}) readonly label_field!: string;
         @Prop({default: 'value'}) readonly value_field!: string;
@@ -117,7 +117,6 @@
             return result_options;
         }
 
-
     }
 </script>
 
@@ -125,6 +124,7 @@
 	.select
 		width 300px
 		display block
+		position relative
 
 		&_container
 			position relative
@@ -173,11 +173,18 @@
 				transform rotate(-45deg)
 
 		&_options
+			position absolute
+			left 0
+			top 100%
+			background white
+			z-index 3
+			width 100%
 			border 1px #c1c1c1 solid
 			border-bottom 0
 
 			&.hidden
 				display none
+
 
 			&.visible
 				display block
