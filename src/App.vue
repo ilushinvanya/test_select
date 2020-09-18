@@ -1,6 +1,9 @@
 <template lang="pug">
-  #app
-    Select(:placeholder="'Сделай свой выбор'")
+#app
+	Select(:placeholder="'Сделай свой выбор'")
+		template(v-slot:placeholder)
+			span Custom placeholder
+
 </template>
 
 <script lang="ts">
@@ -9,8 +12,8 @@ import Select from './components/Select.vue';
 
 @Component({
   components: {
-    Select,
-  },
+    Select
+  }
 })
 export default class App extends Vue {}
 </script>
